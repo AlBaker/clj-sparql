@@ -21,4 +21,4 @@ For executing a SPARQL select query:
 
 Copyright © 2014 Al Baker
 
-Distributed under the Apache Public License 2.0.
+Distributed under the Apache License 2.0.
