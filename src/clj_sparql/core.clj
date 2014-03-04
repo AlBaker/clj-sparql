@@ -34,7 +34,7 @@
    :else (.toString input)))
 
 (defn query [config qs]
-  "Runs a SPARQL query against a particular endpoint configuration"
+  "Runs a SPARQL query against a particular endpoint configuration, returns list of maps where SPARQL vars are keywords"
   (let [{:keys [endpoint user pass]} config
         qe (doto (QueryExecutionFactory/sparqlService endpoint qs) (.setBasicAuthentication user (char-array pass)))]
     (map

@@ -1,6 +1,6 @@
 # clj-sparql
 
-A Clojure library for easily running SPARQL queries.  Uses Apache Jena internally.
+A Clojure library for running SPARQL queries against a SPARQL endpoint.  Uses Apache Jena internally.
 
 ## Usage
 
@@ -9,6 +9,7 @@ For executing a SPARQL select query:
      (query
        {:endpoint "http://localhost:5820/someDb/query"}
        "select ?s ?p ?o WHERE { ?s ?p ?o } LIMIT 10")
+     => ({:s "http://someResource" :p "http://someProperty" :o "someValue"})
 
 ## TODO
 
