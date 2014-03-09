@@ -38,13 +38,15 @@
             (com.hp.hpl.jena.sparql.engine.http QueryEngineHTTP)))
 
 
-(defn convert-rdf-type [input]
+(defn convert-rdf-type
   "Converts the Apache Jena types"
+  [input]
   (cond (.isLiteral input) (.getValue (.asLiteral input))
    :else (.toString input)))
 
-(defn query [config qs]
-  "Runs a SPARQL query against a particular endpoint configuration, returns list of maps where SPARQL vars are keywords"
+(defn query
+   "Runs a SPARQL query against a particular endpoint configuration, returns list of maps where SPARQL vars are keywords"
+  [config qs]
   (let [{:keys [endpoint user pass]} config
         qe (doto (QueryExecutionFactory/sparqlService endpoint qs) (.setBasicAuthentication user (char-array pass)))]
     (map
@@ -58,8 +60,9 @@
 
 ;; There is an incredible amount of parameter configuration required
 ;; Perhaps clj-http is compatible with Jena, but for now, mutate the various objects
-(defn update [config qs ]
+(defn update
   "Runs a SPARQL Update query against a particular endpoint configuration"
+  [config qs ]
   (let [{:keys [endpoint user pass]} config
         http-context (BasicHttpContext. )
         provider (BasicCredentialsProvider. )
