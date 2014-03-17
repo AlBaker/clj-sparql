@@ -26,7 +26,7 @@ For executing a SPARQL Update:
       INSERT { <http://example/egbook> dc:title  \"This is an example title8\" } WHERE {}")
     => nil
 
-The ratoinale for returning nil from the update function is the underlying Apache Jena handling, and in fact the update request execute method is the last expression in the function.
+The rational for returning nil from the update function is the underlying Apache Jena handling, and in fact the update request execute method is the last expression in the function.
 
 
 ## TODO
@@ -37,7 +37,7 @@ The ratoinale for returning nil from the update function is the underlying Apach
 
 ## License
 
-Copyright 2014 Al Baker
+Copyright 2013-2014 Al Baker
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
