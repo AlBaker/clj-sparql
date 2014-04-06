@@ -13,8 +13,7 @@
  ; limitations under the License.
 
 (ns clj-sparql.core
-   (:import (java.util Date
-                      Calendar)
+   (:import
             (com.hp.hpl.jena.query Query
                                    QueryExecution
                                    QueryExecutionFactory
