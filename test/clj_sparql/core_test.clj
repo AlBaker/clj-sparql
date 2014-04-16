@@ -17,9 +17,9 @@
   (:require
             [clj-sparql.core :refer :all]))
 
-(def config {:endpoint "http://localhost:5820/league/query" :user "admin" :pass "admin"})
+(def config {:endpoint "http://localhost:5820/testdb/query" :user "admin" :pass "admin"})
 
-(def update-config {:endpoint "http://localhost:5820/league/update" :user "admin" :pass "admin"})
+(def update-config {:endpoint "http://localhost:5820/testdb/update" :user "admin" :pass "admin"})
 
 (facts "about select queries"
        (fact "running a SPARQL query"
@@ -29,6 +29,10 @@
 (facts "about update queries"
        (fact "running an update query"
              (update update-config "
- PREFIX dc: <http://purl.org/dc/elements/1.1/>
-INSERT { <http://example/egbook> dc:title  \"This is an example title8\" } WHERE {}
-") => nil))
+               PREFIX dc: <http://purl.org/dc/elements/1.1/>
+              INSERT { <http://example/egbook> dc:title  \"This is an example title8\" } WHERE {}
+              ") => nil))
+
+(facts "about ask queries"
+       (fact "running an ask query returns boolean"
+             (ask config "ASK { <http://example/egbook> ?p ?o }") => truthy))

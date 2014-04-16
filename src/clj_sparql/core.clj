@@ -73,3 +73,9 @@
         _ (.setHttpContext update-processor http-context)]
     (.execute update-processor)))
 
+(defn ask
+  "Runs an ASK SPARQL query against an endpoint"
+  [config qs]
+  (let [{:keys [endpoint user pass]} config
+        qe (doto (QueryExecutionFactory/sparqlService endpoint qs) (.setBasicAuthentication user (char-array pass)))]
+    (.execAsk qe)))
