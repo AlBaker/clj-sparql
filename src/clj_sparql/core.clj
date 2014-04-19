@@ -79,3 +79,11 @@
   (let [{:keys [endpoint user pass]} config
         qe (doto (QueryExecutionFactory/sparqlService endpoint qs) (.setBasicAuthentication user (char-array pass)))]
     (.execAsk qe)))
+
+(defn graph
+  "Run a Construct query against an endpoint"
+  [config qs]
+  (let [{:keys [endpoint user pass]} config
+        qe (doto (QueryExecutionFactory/sparqlService endpoint qs) (.setBasicAuthentication user (char-array pass)))]
+    (.execConstruct qe)))
+

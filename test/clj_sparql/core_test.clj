@@ -36,3 +36,7 @@
 (facts "about ask queries"
        (fact "running an ask query returns boolean"
              (ask config "ASK { <http://example/egbook> ?p ?o }") => truthy))
+
+(facts "about construct queries"
+       (fact "running a construct query"
+             (graph config "CONSTRUCT { <http://example/egbook> ?p ?o } WHERE { <http://example/egbook> ?p ?o }") => truthy))
