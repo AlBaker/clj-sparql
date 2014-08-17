@@ -17,6 +17,17 @@ For executing a SPARQL select query:
        "select ?s ?p ?o WHERE { ?s ?p ?o } LIMIT 10")
      => ({:s "http://someResource" :p "http://someProperty" :o "someValue"})
 
+Update queries:
+
+      (update update-config "
+              PREFIX dc: <http://purl.org/dc/elements/1.1/>
+              INSERT { <http://example/egbook> dc:title  \"This is an example title8\" } WHERE {}")
+
+
+Ask queries:
+
+      (ask config "ASK { <http://example/egbook> ?p ?o }")
+
 This is handy, as it lets you do transformations via keyword, e.g. (map :p ...)
 
 For executing a SPARQL Update:
