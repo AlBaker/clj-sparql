@@ -12,13 +12,13 @@
  ; See the License for the specific language governing permissions and
  ; limitations under the License.
 
-(defproject clj-sparql "0.2.0"
+(defproject clj-sparql "0.3.0"
   :description "Clojure SPARQL: Clojure API for interfacing with a SPARQL Endpoint, based on Apache Jena"
   :url "http://github.com/AlBaker/clj-sparql"
   :license {:name "Apache License, Version 2.0"
             :url "https://www.apache.org/licenses/LICENSE-2.0.html"}
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.apache.jena/jena-arq "2.11.1"]]
+                 [org.apache.jena/jena-arq "2.12.0"]]
   :plugins [[lein-midje "3.1.3"]
             [jonase/eastwood "0.0.2"]]
   :profiles
