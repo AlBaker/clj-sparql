@@ -12,30 +12,37 @@ clj-sparql is tested with [Stardog 2.x](http://www.stardog.com)
 
 For executing a SPARQL select query:
 
+```clojure
      (query
        {:endpoint "http://localhost:5820/someDb/query"}
        "select ?s ?p ?o WHERE { ?s ?p ?o } LIMIT 10")
      => ({:s "http://someResource" :p "http://someProperty" :o "someValue"})
+```
 
 Update queries:
 
+```clojure
       (update update-config "
               PREFIX dc: <http://purl.org/dc/elements/1.1/>
               INSERT { <http://example/egbook> dc:title  \"This is an example title8\" } WHERE {}")
-
+```
 
 Ask queries:
 
+```clojure
       (ask config "ASK { <http://example/egbook> ?p ?o }")
+```
 
 This is handy, as it lets you do transformations via keyword, e.g. (map :p ...)
 
 For executing a SPARQL Update:
 
+```clojure
     (update  {:endpoint "http://localhost:5820/someDb/update" :user admin :pass admin} "
       PREFIX dc: <http://purl.org/dc/elements/1.1/>
       INSERT { <http://example/egbook> dc:title  \"This is an example title8\" } WHERE {}")
     => nil
+```
 
 The rational for returning nil from the update function is the underlying Apache Jena handling, and in fact the update request execute method is the last expression in the function.
 
