@@ -22,9 +22,9 @@ For executing a SPARQL select query:
 Update queries:
 
 ```clojure
-      (update update-config "
-              PREFIX dc: <http://purl.org/dc/elements/1.1/>
-              INSERT { <http://example/egbook> dc:title  \"This is an example title8\" } WHERE {}")
+      (update! update-config "
+               PREFIX dc: <http://purl.org/dc/elements/1.1/>
+               INSERT { <http://example/egbook> dc:title  \"This is an example title8\" } WHERE {}")
 ```
 
 Ask queries:
@@ -38,7 +38,7 @@ This is handy, as it lets you do transformations via keyword, e.g. (map :p ...)
 For executing a SPARQL Update:
 
 ```clojure
-    (update  {:endpoint "http://localhost:5820/someDb/update" :user admin :pass admin} "
+    (update!  {:endpoint "http://localhost:5820/someDb/update" :user admin :pass admin} "
       PREFIX dc: <http://purl.org/dc/elements/1.1/>
       INSERT { <http://example/egbook> dc:title  \"This is an example title8\" } WHERE {}")
     => nil

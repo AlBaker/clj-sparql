@@ -59,7 +59,7 @@
 
 ;; There is an incredible amount of parameter configuration required
 ;; Perhaps clj-http is compatible with Jena, but for now, mutate the various objects
-(defn update
+(defn update!
   "Runs a SPARQL Update query against a particular endpoint configuration"
   [config qs ]
   (let [{:keys [endpoint user pass]} config
